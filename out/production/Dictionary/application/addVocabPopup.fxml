@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddVocabPopup">
+   <children>
+      <Label text="คำศัพท์" />
+      <AnchorPane>
+         <children>
+            <TextField fx:id="wordTextField" prefHeight="26.0" prefWidth="310.0" />
+         </children>
+      </AnchorPane>
+      <Label text="คำแปล" />
+      <AnchorPane>
+         <children>
+            <TextField fx:id="meanTextField" prefHeight="26.0" prefWidth="310.0" />
+         </children>
+      </AnchorPane>
+      <Label text="คำศัพท์" />
+      <MenuButton fx:id="speechMenuButton" mnemonicParsing="false" text="ประเภทของคำ">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Noun" />
+            <MenuItem mnemonicParsing="false" text="Pronoun" />
+            <MenuItem mnemonicParsing="false" text="Verb" />
+            <MenuItem mnemonicParsing="false" text="Adverb" />
+            <MenuItem mnemonicParsing="false" text="Adjective" />
+            <MenuItem mnemonicParsing="false" text="Conjunction" />
+            <MenuItem mnemonicParsing="false" text="Preposition" />
+            <MenuItem mnemonicParsing="false" text="Interjection" />
+         </items></MenuButton>
+      <Label text="ตัวอย่างคำศัพท์" />
+      <AnchorPane>
+         <children>
+            <TextField fx:id="exampleTextField" prefHeight="166.0" prefWidth="310.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#clickAddButton" text="เพิ่ม" />
+   </children>
+</VBox>
