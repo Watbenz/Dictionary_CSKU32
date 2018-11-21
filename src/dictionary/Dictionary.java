@@ -10,8 +10,11 @@ public class Dictionary {
     }
 
     public void addVocab(Vocabulary vocab) throws IllegalAccessException {
-        if (vocab == null) {
-            throw new IllegalAccessException("There is no input");
+        if (vocab.getWord().equals("")) {
+            throw new IllegalAccessException("There is no word input");
+        }
+        if (vocab.getMean().equals("")) {
+            throw new IllegalAccessException("There is no mean input");
         }
         for (Vocabulary each: vocabularies) {
             if (each.getWord().equals(vocab.getWord())) {
@@ -22,8 +25,8 @@ public class Dictionary {
     }
 
     public void deleteVocab(String word) throws NoSuchFieldException, IllegalAccessException {
-        if (word == null) {
-            throw new IllegalAccessException("There is no input");
+        if (word.equals("")) {
+            throw new IllegalAccessException("There is no word input");
         }
         for (Vocabulary each: vocabularies) {
             if (each.getWord().equals(word)) {
@@ -38,6 +41,18 @@ public class Dictionary {
         for (Vocabulary each: vocabularies) {
             if (each.getWord().equals(word)) {
                 return each.getMean();
+            }
+        }
+        throw new NoSuchFieldException("There is no \"" + word + "\" in this dictionary.");
+    }
+
+    public void editVocab(String word, Vocabulary editedVocab) throws NoSuchFieldException {
+        for (int i=0; i<vocabularies.size(); i++) {
+            Vocabulary each = vocabularies.get(i);
+            if (word.equals(each.getWord())) {
+                vocabularies.remove(i);
+                vocabularies.add(i, editedVocab);
+                return;
             }
         }
         throw new NoSuchFieldException("There is no \"" + word + "\" in this dictionary.");

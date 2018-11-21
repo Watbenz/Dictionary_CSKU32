@@ -65,7 +65,38 @@ public class MainPageController {
     }
 
     @FXML
-    private void openAddNewVocab() {
+    public void deleteVocab() {
+        try {
+            Vocabulary selectedVocab = dictionaryTableView.getSelectionModel().getSelectedItem();
+            if (selectedVocab == null) {
+                throw new NoSuchFieldException("No selected vocabulary");
+            }
+            dictionary.deleteVocab(selectedVocab.getWord());
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            System.out.println(e.getMessage());
+        }
+        updateDictionary();
+    }
+
+    @FXML
+    public void editVocab() {
+        try {
+            Vocabulary selectedVocab = dictionaryTableView.getSelectionModel().getSelectedItem();
+            if (selectedVocab == null) {
+                throw new NoSuchFieldException("No selected vocabulary");
+            }
+            openPopup("Edit", selectedVocab);
+        } catch (NoSuchFieldException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void addVocab() {
+        openPopup("Add");
+    }
+
+    private void openPopup(String state) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addVocabPopup.fxml"));
             Parent root = loader.load();
@@ -75,6 +106,25 @@ public class MainPageController {
             AddVocabPopup controller = loader.getController();
             controller.setStage(stage);
             controller.setDictionaryAndTable(dictionary, this::updateDictionary);
+            controller.setState(state);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openPopup(String state, Vocabulary editVocab) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("addVocabPopup.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 400, 400));
+
+            AddVocabPopup controller = loader.getController();
+            controller.setStage(stage);
+            controller.setDictionaryAndTable(dictionary, this::updateDictionary);
+            controller.setState(state);
+            controller.setEditVocab(editVocab);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

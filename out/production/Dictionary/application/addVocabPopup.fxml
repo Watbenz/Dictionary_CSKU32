@@ -22,7 +22,7 @@
             <TextField fx:id="meanTextField" prefHeight="26.0" prefWidth="310.0" />
          </children>
       </AnchorPane>
-      <Label text="คำศัพท์" />
+      <Label text="ประเภทของคำ" />
       <MenuButton fx:id="speechMenuButton" mnemonicParsing="false" text="ประเภทของคำ">
          <items>
             <MenuItem mnemonicParsing="false" text="Noun" />

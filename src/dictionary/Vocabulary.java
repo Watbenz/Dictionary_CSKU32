@@ -21,11 +21,27 @@ public class Vocabulary {
         return mean;
     }
 
-    public String getPartOfSpeech() {
-        return partOfSpeech.getName();
+    public PartOfSpeech getPartOfSpeech() {
+        return partOfSpeech;
     }
 
     public String getExample() {
         return example;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public void setMean(String mean) {
+        this.mean = mean;
+    }
+
+    public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
+        this.partOfSpeech = partOfSpeech;
+    }
+
+    public void setExample(String example) {
+        this.example = example;
     }
 }

@@ -22,7 +22,7 @@
          <children>
             <VBox>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="เพิ่มคำศัพท์" onAction="#openAddNewVocab"/>
+                  <Button mnemonicParsing="false" onAction="#addVocab" prefHeight="26.0" prefWidth="87.0" text="เพิ่มคำศัพท์" />
                </children>
             </VBox>
             <VBox>
@@ -30,6 +30,8 @@
                   <Button mnemonicParsing="false" text="ค้นหาความหมาย" />
                </children>
             </VBox>
+            <Button mnemonicParsing="false" onAction="#editVocab" text="แก้ไขคำศัพท์" />
+            <Button mnemonicParsing="false" onAction="#deleteVocab" text="ลบคำศัพท์" />
          </children>
       </HBox>
    </children>
