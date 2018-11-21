@@ -37,16 +37,22 @@ public class Dictionary {
         throw new NoSuchFieldException("There is no \"" + word + "\" in this dictionary.");
     }
 
-    public String findMeaning(String word) throws NoSuchFieldException {
+    public Vocabulary findVocab(String word) throws NoSuchFieldException {
         for (Vocabulary each: vocabularies) {
             if (each.getWord().equals(word)) {
-                return each.getMean();
+                return each;
             }
         }
         throw new NoSuchFieldException("There is no \"" + word + "\" in this dictionary.");
     }
 
     public void editVocab(String word, Vocabulary editedVocab) throws NoSuchFieldException {
+        if (editedVocab.getWord().equals("")) {
+            throw new NoSuchFieldException("There is no word input");
+        }
+        if (editedVocab.getExample().equals("")) {
+            throw new NoSuchFieldException("There is no mean input");
+        }
         for (int i=0; i<vocabularies.size(); i++) {
             Vocabulary each = vocabularies.get(i);
             if (word.equals(each.getWord())) {

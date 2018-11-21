@@ -109,7 +109,7 @@ public class MainPageController {
             controller.setState(state);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());;
         }
     }
 
@@ -127,7 +127,7 @@ public class MainPageController {
             controller.setEditVocab(editVocab);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());;
         }
     }
 }

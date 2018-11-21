@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="126ea1b7-8924-46a4-bf46-631812cad723" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dictionary/application/AddVocabPopup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dictionary/application/AddVocabPopup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dictionary/application/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dictionary/application/MainPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dictionary/application/addVocabPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dictionary/application/addVocabPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dictionary/application/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dictionary/application/mainPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dictionary/dictionary/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dictionary/dictionary/Dictionary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dictionary/dictionary/Vocabulary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dictionary/dictionary/Vocabulary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/AddVocabPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/AddVocabPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/addVocabPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/addVocabPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/mainPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dictionary/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary/Dictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary/Vocabulary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dictionary/Vocabulary.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,12 +41,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="35" />
-          <entry key="java" value="5351" />
+          <entry key="java" value="5541" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5351" />
+          <entry key="JAVA" value="5541" />
           <entry key="XML" value="35" />
         </counts>
       </usages-collector>
@@ -66,33 +54,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/AddVocabPopup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-819">
-              <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+            <state relative-caret-position="1359">
+              <caret line="78" column="24" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#findPartOfSpeech#0;class#AddVocabPopup#0" />
-                <element signature="e#174#175#0" expanded="true" />
-                <element signature="e#208#209#0" expanded="true" />
-                <element signature="e#2578#2579#0" expanded="true" />
-                <element signature="e#2612#2613#0" expanded="true" />
-                <element signature="e#2903#2904#0" expanded="true" />
-                <element signature="e#2945#2946#0" expanded="true" />
+                <element signature="e#3390#3391#0" expanded="true" />
+                <element signature="e#3424#3425#0" expanded="true" />
+                <element signature="e#3645#3646#0" expanded="true" />
+                <element signature="e#3679#3680#0" expanded="true" />
+                <element signature="e#3733#3734#0" expanded="true" />
+                <element signature="e#3775#3776#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/application/MainPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="253">
+              <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#dictionaryInit#0;class#MainPageController#0" />
+                <element signature="method#updateDictionary#0;class#MainPageController#0" />
                 <element signature="e#3385#3386#0" expanded="true" />
                 <element signature="e#3412#3413#0" expanded="true" />
               </folding>
@@ -115,13 +104,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dictionary/Dictionary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+            <state relative-caret-position="92">
+              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
               <folding>
                 <element signature="e#149#150#0" expanded="true" />
                 <element signature="e#202#203#0" expanded="true" />
-                <element signature="e#1883#1884#0" expanded="true" />
-                <element signature="e#1918#1919#0" expanded="true" />
+                <element signature="e#2355#2356#0" expanded="true" />
+                <element signature="e#2390#2391#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,7 +119,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dictionary/Vocabulary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="682">
               <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
               <folding>
                 <element signature="e#549#550#0" expanded="true" />
@@ -174,10 +163,10 @@
         <option value="$PROJECT_DIR$/src/dictionary/PartOfSpeech.java" />
         <option value="$PROJECT_DIR$/src/application/addVocabPopup.fxml" />
         <option value="$PROJECT_DIR$/src/application/EditVocabularyable.java" />
-        <option value="$PROJECT_DIR$/src/application/MainPageController.java" />
         <option value="$PROJECT_DIR$/src/dictionary/Vocabulary.java" />
         <option value="$PROJECT_DIR$/src/dictionary/Dictionary.java" />
         <option value="$PROJECT_DIR$/src/application/AddVocabPopup.java" />
+        <option value="$PROJECT_DIR$/src/application/MainPageController.java" />
       </list>
     </option>
   </component>
@@ -256,7 +245,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542821938723" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542823605253" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -307,12 +296,12 @@
       <workItem from="1542517389615" duration="940000" />
       <workItem from="1542645931503" duration="917000" />
       <workItem from="1542694136636" duration="4209000" />
-      <workItem from="1542727489511" duration="20919000" />
+      <workItem from="1542727489511" duration="22434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40533000" />
+    <option name="totallyTimeSpent" value="42048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1476" height="878" extended-state="6" />
@@ -437,7 +426,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dictionary/Vocabulary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="682">
           <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
             <element signature="e#549#550#0" expanded="true" />
@@ -448,43 +437,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dictionary/Dictionary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        <state relative-caret-position="92">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding>
             <element signature="e#149#150#0" expanded="true" />
             <element signature="e#202#203#0" expanded="true" />
-            <element signature="e#1883#1884#0" expanded="true" />
-            <element signature="e#1918#1919#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#dictionaryInit#0;class#MainPageController#0" />
-            <element signature="e#3385#3386#0" expanded="true" />
-            <element signature="e#3412#3413#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+            <element signature="e#2390#2391#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/AddVocabPopup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-819">
-          <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+        <state relative-caret-position="1359">
+          <caret line="78" column="24" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#findPartOfSpeech#0;class#AddVocabPopup#0" />
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#208#209#0" expanded="true" />
-            <element signature="e#2578#2579#0" expanded="true" />
-            <element signature="e#2612#2613#0" expanded="true" />
-            <element signature="e#2903#2904#0" expanded="true" />
-            <element signature="e#2945#2946#0" expanded="true" />
+            <element signature="e#3390#3391#0" expanded="true" />
+            <element signature="e#3424#3425#0" expanded="true" />
+            <element signature="e#3645#3646#0" expanded="true" />
+            <element signature="e#3679#3680#0" expanded="true" />
+            <element signature="e#3733#3734#0" expanded="true" />
+            <element signature="e#3775#3776#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#dictionaryInit#0;class#MainPageController#0" />
+            <element signature="method#updateDictionary#0;class#MainPageController#0" />
+            <element signature="e#3385#3386#0" expanded="true" />
+            <element signature="e#3412#3413#0" expanded="true" />
           </folding>
         </state>
       </provider>

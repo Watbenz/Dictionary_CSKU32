@@ -47,7 +47,7 @@ public class AddVocabPopup {
             Vocabulary vocabulary = getVocabFromInput();
             dictionary.editVocab(editVocab.getWord(), vocabulary);
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());;
         }
         callbackUpdate.run();
         stage.close();
