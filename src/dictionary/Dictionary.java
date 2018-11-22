@@ -1,5 +1,7 @@
 package dictionary;
 
+import application.MyFormatter;
+
 import java.util.ArrayList;
 
 public class Dictionary {
@@ -62,6 +64,10 @@ public class Dictionary {
             }
         }
         throw new NoSuchFieldException("There is no \"" + word + "\" in this dictionary.");
+    }
+
+    public String format(MyFormatter format) {
+        return format.format(this);
     }
 
     public ArrayList<Vocabulary> getVocabularies() {

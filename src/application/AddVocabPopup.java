@@ -5,10 +5,7 @@ import dictionary.PartOfSpeech;
 import dictionary.Vocabulary;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class AddVocabPopup {
@@ -17,6 +14,7 @@ public class AddVocabPopup {
     @FXML private MenuButton speechMenuButton;
     @FXML private TextField exampleTextField;
     @FXML private Button addButton;
+    @FXML private Label errorLabel;
     private Dictionary dictionary;
     private Vocabulary editVocab;
     private Runnable callbackUpdate;
@@ -25,6 +23,7 @@ public class AddVocabPopup {
 
     @FXML
     public void initialize() {
+        errorLabel.setText("");
         for (MenuItem item: speechMenuButton.getItems()) {
             item.setOnAction(event -> speechMenuButton.setText(item.getText()));
         }
@@ -46,22 +45,22 @@ public class AddVocabPopup {
         try {
             Vocabulary vocabulary = getVocabFromInput();
             dictionary.editVocab(editVocab.getWord(), vocabulary);
+            callbackUpdate.run();
+            stage.close();
         } catch (NoSuchFieldException e) {
-            System.out.println(e.getMessage());;
+            errorLabel.setText(e.getMessage());
         }
-        callbackUpdate.run();
-        stage.close();
     }
 
     private void addVocab() {
         try {
             Vocabulary vocabulary = getVocabFromInput();
             dictionary.addVocab(vocabulary);
+            callbackUpdate.run();
+            stage.close();
         } catch (IllegalAccessException e) {
-            System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
         }
-        callbackUpdate.run();
-        stage.close();
     }
 
     private void setTextForEditVocab() {
@@ -86,22 +85,22 @@ public class AddVocabPopup {
 
     private PartOfSpeech findPartOfSpeech(String string) {
         switch (string) {
-            case "Noun":
-                return PartOfSpeech.Noun;
-            case "Pronoun":
-                return PartOfSpeech.Pronoun;
-            case "Verb":
-                return PartOfSpeech.Verb;
-            case "Adverb":
-                return PartOfSpeech.Adverb;
-            case "Conjunction":
-                return PartOfSpeech.Conjunction;
-            case "Preposition":
-                return PartOfSpeech.Preposition;
-            case "Interjection":
-                return PartOfSpeech.Interjection;
+            case "NOUN":
+                return PartOfSpeech.NOUN;
+            case "PRONOUN":
+                return PartOfSpeech.PRONOUN;
+            case "VERB":
+                return PartOfSpeech.VERB;
+            case "ADVERB":
+                return PartOfSpeech.ADVERB;
+            case "CONJUNCTION":
+                return PartOfSpeech.CONJUNCTION;
+            case "PREPOSITION":
+                return PartOfSpeech.PREPOSITION;
+            case "INTERJECTION":
+                return PartOfSpeech.INTERJECTION;
         }
-        return PartOfSpeech.Undefined;
+        return PartOfSpeech.UNDEFINED;
     }
 
     public void setStage(Stage stage) {

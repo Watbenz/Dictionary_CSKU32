@@ -17,6 +17,7 @@ public class FindWordPopup {
     public Label meaningLabel;
     public Label speechLabel;
     public Label exampleLabel;
+    public Label errorLabel;
     @FXML private Stage stage;
     private Dictionary dictionary;
 
@@ -41,7 +42,7 @@ public class FindWordPopup {
         try {
             vocabulary = dictionary.findVocab(input);
         } catch (NoSuchFieldException e) {
-            System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
         }
 
         if (vocabulary != null) {
@@ -55,6 +56,7 @@ public class FindWordPopup {
         meaningLabel.setText("");
         speechLabel.setText("");
         exampleLabel.setText("");
+        errorLabel.setText("");
     }
 
     private void setUpText(Vocabulary vocabulary) {
@@ -62,6 +64,7 @@ public class FindWordPopup {
         meaningLabel.setText(vocabulary.getMean());
         speechLabel.setText(vocabulary.getPartOfSpeech().getName());
         exampleLabel.setText(vocabulary.getExample());
+        errorLabel.setText("");
     }
 
     public void setStage(Stage stage) {

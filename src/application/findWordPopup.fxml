@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -38,5 +39,13 @@
       </Label>
       <Label text="ตัวอย่างคำ" />
       <Label fx:id="exampleLabel" text="นี่คือตัวอย่างคำ" />
+      <AnchorPane>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
+         <children>
+            <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" prefHeight="18.0" prefWidth="328.0" text="Error message" textAlignment="CENTER" textFill="RED" />
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

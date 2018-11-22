@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AlertWriteFile">
+   <children>
+      <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="307.0" prefWidth="366.0">
+         <content>
+            <Label fx:id="dataLabel" alignment="TOP_LEFT" text="Label" />
+         </content>
+      </ScrollPane>
+      <Button layoutX="185.0" layoutY="351.0" mnemonicParsing="false" onAction="#closeWindow" text="ปิด" />
+   </children>
+</AnchorPane>

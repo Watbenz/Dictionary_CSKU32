@@ -1,15 +1,15 @@
 package dictionary;
 
 public enum PartOfSpeech {
-    Noun("Noun"),
-    Pronoun("Pronoun"),
-    Verb("Verb"),
-    Adverb("Adverb"),
-    Adjective("Adjective"),
-    Conjunction("Conjunction"),
-    Preposition("Preposition"),
-    Interjection("Interjection"),
-    Undefined("Undefined");
+    NOUN("NOUN"),
+    PRONOUN("PRONOUN"),
+    VERB("VERB"),
+    ADVERB("ADVERB"),
+    ADJECTIVE("ADJECTIVE"),
+    CONJUNCTION("CONJUNCTION"),
+    PREPOSITION("PREPOSITION"),
+    INTERJECTION("INTERJECTION"),
+    UNDEFINED("UNDEFINED");
 
     private String name;
 
