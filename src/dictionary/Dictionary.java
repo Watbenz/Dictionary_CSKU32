@@ -50,7 +50,7 @@ public class Dictionary {
         if (editedVocab.getWord().equals("")) {
             throw new NoSuchFieldException("There is no word input");
         }
-        if (editedVocab.getExample().equals("")) {
+        if (editedVocab.getMean().equals("")) {
             throw new NoSuchFieldException("There is no mean input");
         }
         for (int i=0; i<vocabularies.size(); i++) {

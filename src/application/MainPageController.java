@@ -5,7 +5,6 @@ import dictionary.PartOfSpeech;
 import dictionary.Vocabulary;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -85,7 +84,7 @@ public class MainPageController {
             if (selectedVocab == null) {
                 throw new NoSuchFieldException("No selected vocabulary");
             }
-            openPopup("Edit", selectedVocab);
+            openPopup(selectedVocab);
         } catch (NoSuchFieldException e) {
             System.out.println(e.getMessage());
         }
@@ -93,10 +92,10 @@ public class MainPageController {
 
     @FXML
     public void addVocab() {
-        openPopup("Add");
+        openPopup();
     }
 
-    private void openPopup(String state) {
+    private void openPopup() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addVocabPopup.fxml"));
             Parent root = loader.load();
@@ -106,14 +105,14 @@ public class MainPageController {
             AddVocabPopup controller = loader.getController();
             controller.setStage(stage);
             controller.setDictionaryAndTable(dictionary, this::updateDictionary);
-            controller.setState(state);
+            controller.setState("Add");
             stage.show();
         } catch (IOException e) {
             System.out.println(e.getMessage());;
         }
     }
 
-    private void openPopup(String state, Vocabulary editVocab) {
+    private void openPopup(Vocabulary editVocab) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addVocabPopup.fxml"));
             Parent root = loader.load();
@@ -123,7 +122,7 @@ public class MainPageController {
             AddVocabPopup controller = loader.getController();
             controller.setStage(stage);
             controller.setDictionaryAndTable(dictionary, this::updateDictionary);
-            controller.setState(state);
+            controller.setState("Edit");
             controller.setEditVocab(editVocab);
             stage.show();
         } catch (IOException e) {
