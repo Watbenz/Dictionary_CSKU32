@@ -130,4 +130,21 @@ public class MainPageController {
             System.out.println(e.getMessage());;
         }
     }
+
+    @FXML
+    private void openFindVocab() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("findWordPopup.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 400, 400));
+
+            FindWordPopup controller = loader.getController();
+            controller.setStage(stage);
+            controller.setDictionary(dictionary);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());;
+        }
+    }
 }

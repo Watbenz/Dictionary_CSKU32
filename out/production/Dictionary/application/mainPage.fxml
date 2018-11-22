@@ -27,7 +27,7 @@
             </VBox>
             <VBox>
                <children>
-                  <Button mnemonicParsing="false" text="ค้นหาความหมาย" />
+                  <Button mnemonicParsing="false" onAction="#openFindVocab" text="ค้นหาความหมาย" />
                </children>
             </VBox>
             <Button mnemonicParsing="false" onAction="#editVocab" text="แก้ไขคำศัพท์" />
