@@ -1,7 +1,7 @@
 package application;
 
+import application.myFormatter.MyFormatter;
 import dictionary.Dictionary;
-import dictionary.Vocabulary;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

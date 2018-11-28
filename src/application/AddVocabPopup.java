@@ -36,7 +36,7 @@ public class AddVocabPopup {
     private Vocabulary getVocabFromInput() {
         String word = wordTextField.getText();
         String mean = meanTextField.getText();
-        PartOfSpeech speech = findPartOfSpeech(speechMenuButton.getText());
+        PartOfSpeech speech = PartOfSpeech.parseSpeech(speechMenuButton.getText());
         String example = exampleTextField.getText().equals("") ? "No Example" : exampleTextField.getText();
         return new Vocabulary(word, mean, speech, example);
     }
@@ -81,26 +81,6 @@ public class AddVocabPopup {
                 editVocab();
                 break;
         }
-    }
-
-    private PartOfSpeech findPartOfSpeech(String string) {
-        switch (string) {
-            case "NOUN":
-                return PartOfSpeech.NOUN;
-            case "PRONOUN":
-                return PartOfSpeech.PRONOUN;
-            case "VERB":
-                return PartOfSpeech.VERB;
-            case "ADVERB":
-                return PartOfSpeech.ADVERB;
-            case "CONJUNCTION":
-                return PartOfSpeech.CONJUNCTION;
-            case "PREPOSITION":
-                return PartOfSpeech.PREPOSITION;
-            case "INTERJECTION":
-                return PartOfSpeech.INTERJECTION;
-        }
-        return PartOfSpeech.UNDEFINED;
     }
 
     public void setStage(Stage stage) {

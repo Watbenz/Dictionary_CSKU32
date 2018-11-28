@@ -1,5 +1,9 @@
 package application;
 
+import application.myFormatter.JSONFormatter;
+import application.myFormatter.MyFormat;
+import application.myFormatter.MyFormatter;
+import application.myFormatter.XMLFormatter;
 import dictionary.Dictionary;
 import dictionary.PartOfSpeech;
 import dictionary.Vocabulary;
@@ -15,21 +19,92 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.URISyntaxException;
 
 public class MainPageController {
     @FXML private Stage stage;
     @FXML private Label errorLabel;
     @FXML private TableView<Vocabulary> dictionaryTableView;
     private Dictionary dictionary;
+    private File workDir;
+    private File dicFile;
+
+    public MainPageController() {
+        findPath();
+        try {
+            dictionaryInit();
+        } catch (IllegalAccessException e) {
+            errorLabel.setText(e.getMessage());
+        }
+        updateFile();
+    }
 
     @FXML
     public void initialize()  {
+        tableViewInit();
+        updateDictionary();
+    }
+
+    private void findPath() {
+        File jarFile = null;
         try {
-            dictionaryInit();
-            updateDictionary();
-        } catch (IllegalAccessException e) {
-            errorLabel.setText(e.getMessage());        }
+            jarFile = new File(MainPageController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        String fileSep = System.getProperty("file.separator");
+
+        assert jarFile != null;
+        String pathJar = jarFile.getParent() + fileSep;
+
+        workDir = new File(pathJar + "dictionaryData");
+        workDir.mkdir();
+
+        dicFile = new File(workDir.getPath() + fileSep + "dictionary.json");
+    }
+
+    private void readFile() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(dicFile));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateFile() {
+        try {
+            MyFormatter formatter = new MyFormat();
+            PrintWriter writer = new PrintWriter(new FileWriter(dicFile));
+
+            writer.println(formatter.format(dictionary));
+            writer.close();
+            readFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void tableViewInit() {
+        TableColumn<Vocabulary, String> word = new TableColumn<>("word");
+        TableColumn<Vocabulary, String> mean = new TableColumn<>("mean");
+        TableColumn<Vocabulary, PartOfSpeech> speech = new TableColumn<>("partOfSpeech");
+        TableColumn<Vocabulary, String> example = new TableColumn<>("example");
+
+        word.setCellValueFactory(new PropertyValueFactory<>("word"));
+        mean.setCellValueFactory(new PropertyValueFactory<>("mean"));
+        speech.setCellValueFactory(new PropertyValueFactory<>("partOfSpeech"));
+        example.setCellValueFactory(new PropertyValueFactory<>("example"));
+
+        dictionaryTableView.getColumns().add(word);
+        dictionaryTableView.getColumns().add(mean);
+        dictionaryTableView.getColumns().add(speech);
+        dictionaryTableView.getColumns().add(example);
     }
 
     private void dictionaryInit() throws IllegalAccessException {
@@ -39,7 +114,7 @@ public class MainPageController {
                 "void",
                 "a large hole or empty space",
                 PartOfSpeech.NOUN,
-                "She stood at the edge of the chasm and stared into the void.\n" +
+                "She stood at the edge of the chasm and stared into the void. " +
                 "Before Einstein, space was regarded as a formless void."
         ));
 
@@ -61,7 +136,7 @@ public class MainPageController {
                 "instant",
                 "happening immediately, without any delay",
                 PartOfSpeech.ADJECTIVE,
-                "This type of account offers you instant access to your money.\n" +
+                "This type of account offers you instant access to your money. " +
                         "Contrary to expectations, the film was an instant success."
         ));
 
@@ -71,21 +146,6 @@ public class MainPageController {
                 PartOfSpeech.ADJECTIVE,
                 "The fridge keeps food at a constant temperature."
         ));
-
-        TableColumn<Vocabulary, String> word = new TableColumn<>("word");
-        TableColumn<Vocabulary, String> mean = new TableColumn<>("mean");
-        TableColumn<Vocabulary, PartOfSpeech> speech = new TableColumn<>("partOfSpeech");
-        TableColumn<Vocabulary, String> example = new TableColumn<>("example");
-
-        word.setCellValueFactory(new PropertyValueFactory<>("word"));
-        mean.setCellValueFactory(new PropertyValueFactory<>("mean"));
-        speech.setCellValueFactory(new PropertyValueFactory<>("partOfSpeech"));
-        example.setCellValueFactory(new PropertyValueFactory<>("example"));
-
-        dictionaryTableView.getColumns().add(word);
-        dictionaryTableView.getColumns().add(mean);
-        dictionaryTableView.getColumns().add(speech);
-        dictionaryTableView.getColumns().add(example);
     }
 
     private void updateDictionary() {
@@ -170,10 +230,10 @@ public class MainPageController {
             controller.setDictionary(dictionary);
 
             if (state.equals("XML")) {
-                controller.setFormatter(obj -> xmlFormat((Dictionary) obj));
+                controller.setFormatter(new XMLFormatter());
             }
             if (state.equals("Json")) {
-                controller.setFormatter(obj -> jsonFormat((Dictionary) obj));
+                controller.setFormatter(new JSONFormatter());
             }
 
             stage.show();
@@ -216,43 +276,5 @@ public class MainPageController {
         } catch (IOException e) {
             errorLabel.setText(e.getMessage());
         }
-    }
-
-    private String xmlFormat(Dictionary dictionary) {
-        StringBuilder output = new StringBuilder();
-
-        output.append("<Dictionary>\n");                                                            // <Dictionary>
-
-        for (Vocabulary vocab: dictionary.getVocabularies()) {
-            output.append("\t<Vocab word=\"").append(vocab.getWord()).append("\">\n");              // <Vocab word="word">
-            output.append("\t\t<PartOfSpeech>").append(vocab.getPartOfSpeech().getName()).append("</PartOfSpeech>\n");  // <PartOfSpeech>NOUN</PartOfSpeech>
-            output.append("\t\t<Meaning>").append(vocab.getMean()).append("</Meaning>\n");          // <Meaning>To say, or do again; repeat</Meaning>
-            output.append("\t\t<Example>").append(vocab.getExample()).append("</Example>\n");       // <Example>She kept reiterating her request.</Example>
-            output.append("\t</Vocab>\n");                                                          // </Vocab>
-        }
-
-        output.append("</Dictionary>\n");                                                           // </Dictionary>
-        return output.toString();
-    }
-
-    private String jsonFormat(Dictionary dictionary) {
-        StringBuilder output = new StringBuilder();
-        output.append("]\n");
-
-        for (Vocabulary vocab: dictionary.getVocabularies()) {
-            output.append("\t{\n");
-            output.append("\t\tvocab: \"").append(vocab.getWord()).append("\",\n");             // vocab: "iterator",
-            output.append("\t\tpartOfSpeech: \"").append(vocab.getPartOfSpeech().getName()).append("\",\n");       // partOfSpeech: "VERB",
-            output.append("\t\tmeaning: \"").append(vocab.getMean()).append("\",\n");           // meaning: "To say, or do again; repeat",
-            output.append("\t\texample: \"").append(vocab.getExample()).append("\",\n");        // example: "She kept reiterating her request."
-
-            output.append("\t},\n");
-        }
-
-        if (!dictionary.getVocabularies().isEmpty())                                    // If dictionary is not empty
-            output.delete(output.length()-2, output.length()-1);                        // Delete last ,
-
-        output.append("[\n");
-        return output.toString();
     }
 }

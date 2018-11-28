@@ -20,4 +20,24 @@ public enum PartOfSpeech {
     public String getName() {
         return name;
     }
+
+    public static PartOfSpeech parseSpeech(String string) {
+        switch (string) {
+            case "NOUN":
+                return PartOfSpeech.NOUN;
+            case "PRONOUN":
+                return PartOfSpeech.PRONOUN;
+            case "VERB":
+                return PartOfSpeech.VERB;
+            case "ADVERB":
+                return PartOfSpeech.ADVERB;
+            case "CONJUNCTION":
+                return PartOfSpeech.CONJUNCTION;
+            case "PREPOSITION":
+                return PartOfSpeech.PREPOSITION;
+            case "INTERJECTION":
+                return PartOfSpeech.INTERJECTION;
+        }
+        return PartOfSpeech.UNDEFINED;
+    }
 }

@@ -1,6 +1,6 @@
 package dictionary;
 
-import application.MyFormatter;
+import application.myFormatter.MyFormatter;
 
 import java.util.ArrayList;
 
