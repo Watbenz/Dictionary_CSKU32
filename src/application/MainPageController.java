@@ -1,10 +1,9 @@
 package application;
 
 import application.myFormatter.JSONFormatter;
-import application.myFormatter.MyFormat;
-import application.myFormatter.MyFormatter;
 import application.myFormatter.XMLFormatter;
 import dictionary.Dictionary;
+import dictionary.DictionaryIO;
 import dictionary.PartOfSpeech;
 import dictionary.Vocabulary;
 import javafx.collections.FXCollections;
@@ -20,74 +19,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.net.URISyntaxException;
 
 public class MainPageController {
     @FXML private Stage stage;
     @FXML private Label errorLabel;
     @FXML private TableView<Vocabulary> dictionaryTableView;
     private Dictionary dictionary;
-    private File workDir;
-    private File dicFile;
+    private DictionaryIO dictionaryIO;
 
     public MainPageController() {
-        findPath();
-        try {
-            dictionaryInit();
-        } catch (IllegalAccessException e) {
-            errorLabel.setText(e.getMessage());
-        }
-        updateFile();
+        this.dictionary = new Dictionary();
+        this.dictionaryIO = new DictionaryIO(dictionary);
     }
 
     @FXML
     public void initialize()  {
         tableViewInit();
-        updateDictionary();
-    }
-
-    private void findPath() {
-        File jarFile = null;
-        try {
-            jarFile = new File(MainPageController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        String fileSep = System.getProperty("file.separator");
-
-        assert jarFile != null;
-        String pathJar = jarFile.getParent() + fileSep;
-
-        workDir = new File(pathJar + "dictionaryData");
-        workDir.mkdir();
-
-        dicFile = new File(workDir.getPath() + fileSep + "dictionary.json");
-    }
-
-    private void readFile() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(dicFile));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void updateFile() {
-        try {
-            MyFormatter formatter = new MyFormat();
-            PrintWriter writer = new PrintWriter(new FileWriter(dicFile));
-
-            writer.println(formatter.format(dictionary));
-            writer.close();
-            readFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        updateTableView();
     }
 
     private void tableViewInit() {
@@ -107,50 +55,10 @@ public class MainPageController {
         dictionaryTableView.getColumns().add(example);
     }
 
-    private void dictionaryInit() throws IllegalAccessException {
-        dictionary = new Dictionary();
-
-        dictionary.addVocab(new Vocabulary(
-                "void",
-                "a large hole or empty space",
-                PartOfSpeech.NOUN,
-                "She stood at the edge of the chasm and stared into the void. " +
-                "Before Einstein, space was regarded as a formless void."
-        ));
-
-        dictionary.addVocab(new Vocabulary(
-                "avoid",
-                "to prevent something from happening or to not allow yourself to do something",
-                PartOfSpeech.VERB,
-                "The report studiously avoided any mention of the controversial plan."
-        ));
-
-        dictionary.addVocab(new Vocabulary(
-                "null",
-                "having a value of zero",
-                PartOfSpeech.ADJECTIVE,
-                "Browser performance was improved by analysing failed searches which return null set results."
-        ));
-
-        dictionary.addVocab(new Vocabulary(
-                "instant",
-                "happening immediately, without any delay",
-                PartOfSpeech.ADJECTIVE,
-                "This type of account offers you instant access to your money. " +
-                        "Contrary to expectations, the film was an instant success."
-        ));
-
-        dictionary.addVocab(new Vocabulary(
-                "constant",
-                "staying the same, or not getting less or more",
-                PartOfSpeech.ADJECTIVE,
-                "The fridge keeps food at a constant temperature."
-        ));
-    }
-
-    private void updateDictionary() {
+    private void updateTableView() {
         ObservableList<Vocabulary> list = FXCollections.observableArrayList(dictionary.getVocabularies());
         dictionaryTableView.setItems(list);
+        dictionaryIO.updateFile();
         errorLabel.setText("");
     }
 
@@ -166,7 +74,7 @@ public class MainPageController {
                 throw new NoSuchFieldException("No selected vocabulary");
             }
             dictionary.deleteVocab(selectedVocab.getWord());
-            updateDictionary();
+            updateTableView();
         } catch (NoSuchFieldException | IllegalAccessException e) {
             errorLabel.setText(e.getMessage());
         }
@@ -251,7 +159,7 @@ public class MainPageController {
 
             AddVocabPopup controller = loader.getController();
             controller.setStage(stage);
-            controller.setDictionaryAndTable(dictionary, this::updateDictionary);
+            controller.setDictionaryAndTable(dictionary, this::updateTableView);
             controller.setState("Add");
             stage.show();
         } catch (IOException e) {
@@ -269,7 +177,7 @@ public class MainPageController {
 
             AddVocabPopup controller = loader.getController();
             controller.setStage(stage);
-            controller.setDictionaryAndTable(dictionary, this::updateDictionary);
+            controller.setDictionaryAndTable(dictionary, this::updateTableView);
             controller.setState("Edit");
             controller.setEditVocab(editVocab);
             stage.show();

@@ -7,7 +7,7 @@ public class MyFormat implements MyFormatter {
     @Override
     public String format(Object obj) {
         StringBuilder output = new StringBuilder();
-        Dictionary dictionary = new Dictionary();
+        Dictionary dictionary = (Dictionary) obj;
 
         for (Vocabulary vocab: dictionary.getVocabularies()) {
             output.append(vocab.getWord()).append("\n");

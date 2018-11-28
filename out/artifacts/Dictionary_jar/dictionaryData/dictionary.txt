@@ -1,0 +1,25 @@
+void
+a large hole or empty space
+NOUN
+She stood at the edge of the chasm and stared into the void. Before Einstein, space was regarded as a formless void.
+avoid
+to prevent something from happening or to not allow yourself to do something
+VERB
+The report studiously avoided any mention of the controversial plan.
+null
+having a value of zero
+UNDEFINED
+Browser performance was improved by analysing failed searches which return null set results.
+instant
+happening immediately, without any delay
+UNDEFINED
+This type of account offers you instant access to your money. Contrary to expectations, the film was an instant success.
+constant
+staying the same, or not getting less or more
+UNDEFINED
+The fridge keeps food at a constant temperature.
+What
+what
+UNDEFINED
+No Example
+

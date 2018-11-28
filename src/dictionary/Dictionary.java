@@ -73,4 +73,8 @@ public class Dictionary {
     public ArrayList<Vocabulary> getVocabularies() {
         return vocabularies;
     }
+
+    public void clear() {
+        vocabularies.clear();
+    }
 }
