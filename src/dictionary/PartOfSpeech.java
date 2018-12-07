@@ -31,6 +31,8 @@ public enum PartOfSpeech {
                 return PartOfSpeech.VERB;
             case "ADVERB":
                 return PartOfSpeech.ADVERB;
+            case "ADJECTIVE":
+                return PartOfSpeech.ADJECTIVE;
             case "CONJUNCTION":
                 return PartOfSpeech.CONJUNCTION;
             case "PREPOSITION":

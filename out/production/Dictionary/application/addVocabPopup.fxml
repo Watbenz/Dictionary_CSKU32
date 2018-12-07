@@ -26,14 +26,14 @@
       <Label text="ประเภทของคำ" />
       <MenuButton fx:id="speechMenuButton" mnemonicParsing="false" text="ประเภทของคำ">
          <items>
-            <MenuItem mnemonicParsing="false" text="Noun" />
-            <MenuItem mnemonicParsing="false" text="Pronoun" />
-            <MenuItem mnemonicParsing="false" text="Verb" />
-            <MenuItem mnemonicParsing="false" text="Adverb" />
-            <MenuItem mnemonicParsing="false" text="Adjective" />
-            <MenuItem mnemonicParsing="false" text="Conjunction" />
-            <MenuItem mnemonicParsing="false" text="Preposition" />
-            <MenuItem mnemonicParsing="false" text="Interjection" />
+            <MenuItem mnemonicParsing="false" text="NOUN" />
+            <MenuItem mnemonicParsing="false" text="PRONOUN" />
+            <MenuItem mnemonicParsing="false" text="VERB" />
+            <MenuItem mnemonicParsing="false" text="ADVERB" />
+            <MenuItem mnemonicParsing="false" text="ADJECTIVE" />
+            <MenuItem mnemonicParsing="false" text="CONJUNCTION" />
+            <MenuItem mnemonicParsing="false" text="PREPOSITION" />
+            <MenuItem mnemonicParsing="false" text="INTERJECTION" />
          </items></MenuButton>
       <Label text="ตัวอย่างคำศัพท์" />
       <AnchorPane>
